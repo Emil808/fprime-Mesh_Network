@@ -1,0 +1,4 @@
+sGPS's async input ping. part of its operation is to send data out. 
+Sending data out gets delayed when another component uses the same downlink chain (the MultiTcpServer). 
+Some delay made it possible to fill the async message buffer (a buffer that queues in messages to the port). In this case, queue of inputs to the async port ping. 
+When full, it triggers an FW_ASSERT, sometimes when debugging, the deployment send it down as an event. More often, it segmentation faults
